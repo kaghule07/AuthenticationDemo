@@ -25,7 +25,10 @@ namespace AuthenticationDemo.Controllers
         {
             return View();
         }
-
+        public ActionResult AddToCart()
+        {
+            return View();
+        }
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

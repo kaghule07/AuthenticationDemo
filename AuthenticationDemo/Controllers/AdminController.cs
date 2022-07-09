@@ -13,9 +13,11 @@ namespace AuthenticationDemo.Controllers
         public ActionResult Index()
         {
             var model = db.GetAllProducts();
+            
             return View(model);
+            
         }
-
+        
 
         // GET: ProductWithModelController/Details/5
         public ActionResult Details(int id)
