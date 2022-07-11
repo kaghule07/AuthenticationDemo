@@ -2,11 +2,15 @@
 using Microsoft.AspNetCore.Mvc;
 using AuthenticationDemo.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using System.Collections.Generic;
+
 namespace AuthenticationDemo.Controllers
 {
     public class CustomerController : Controller
     {
         // GET: CustomerController
+        CartDAL bd = new CartDAL();
         CustomerDAL db = new CustomerDAL();
         public ActionResult Index()
         {
@@ -25,8 +29,12 @@ namespace AuthenticationDemo.Controllers
         {
             return View();
         }
-        public ActionResult AddToCart()
+        [Authorize]
+        public ActionResult AddToCart(int ProductId,int Quantity)
         {
+            string userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            List<Customer> clist = new List<Customer>();
+            int res = bd.GetCart(ProductId,userId,Quantity);
             return View();
         }
         // POST: CustomerController/Create

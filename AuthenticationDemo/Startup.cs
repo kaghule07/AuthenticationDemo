@@ -60,7 +60,7 @@ namespace AuthenticationDemo
 
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSession();
+            /*app.UseSession();*/
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
